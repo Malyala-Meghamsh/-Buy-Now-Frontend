@@ -11,11 +11,11 @@ function App() {
   return (
       <Routes>
         <Route exact path='/' Component={Home}/>
-        <Route path='/login' Component={Login}/>
-        <Route path='/register' Component={Register}/>
+        <Route exact path='/login' Component={Login}/>
+        <Route exact path='/register' Component={Register}/>
         <Route exact path='/product/:id' Component={Product}/>
-        <Route path='/profile' Component={Profile}/>
-        <Route path='/confirm/:id' Component={Confirm}/>
+        <Route exact path='/profile' Component={Profile}/>
+        <Route path='/' Component={Nothing}/>
       </Routes>
   );
 }
