@@ -27,6 +27,10 @@ function ProductsBidsDisplay({closeBidsModal, prod}){
         }).catch(err=>
             console.log(err)
         )
+        // document.body.style.overflowY = "hidden";
+        // return ()=>{
+        //     document.body.style.overflowY = "scroll";
+        // }
     },[])
     return ReactDOM.createPortal(<>
         <div className="modal-wrapperbids" onClick={closeBidsModal}>

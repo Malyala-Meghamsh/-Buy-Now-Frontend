@@ -48,8 +48,8 @@ function Product() {
     const [showBids, setShowBids] = useState();
 
     useEffect(()=>{
-        console.log(id);
-        console.log(bids);
+        // console.log(id);
+        // console.log(bids);
         const token = localStorage.getItem('token');
         axios.get( `${process.env.REACT_APP_BACKEND_URL}/product/${id}`, { headers : {
             Authorization: token,
@@ -58,6 +58,7 @@ function Product() {
                 setUser(res.data.user);
                 setName(res.data.user.name);
                 setData(res.data);
+                console.log(res.data);
                 setShowBids(res.data.showBids);
                 // setBids(res.data.bids);
                 sortByPrice(res.data.bids);
@@ -184,11 +185,15 @@ function Product() {
                     {placeBidModal && <PlaceBid item={data.item._id} user={user} closeModal={closeModal}/>}
                     <div className="p" >
                         <h1 className="n" >Bids</h1>
-                        <button disabled={data.item.ownerID === data.user._id} className="qwerty" onClick={()=>{setPlaceBidModal(true)}} type="button" >
+                        <button disabled={data.item.ownerID === data.user._id || data.item.sold} className="qwerty" onClick={()=>{setPlaceBidModal(true)}} type="button" >
                             <span>Place Bid</span>
                         </button >
                     </div>
-                    <div className="q" >
+                    {data.item.sold && 
+                        <div>
+                            This Item is sold.
+                        </div>}
+                    {data.item.sold || <div className="q" >
                             {bids.map(bid => {
                             return <div className="r">
                                     <div className="s" >
@@ -202,7 +207,7 @@ function Product() {
                                     </div>
                             </div>
                         })}
-                    </div>
+                    </div>}
                 </div>
             </div>
         </div>

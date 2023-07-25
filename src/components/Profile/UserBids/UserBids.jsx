@@ -45,7 +45,7 @@ function UsersBids(props) {
         <div className="vucol vucol-7">Message</div>
         <div className="vucol vucol-8">Item Status</div>
       </li>
-      {bidslist.map((bid) => {
+      {bidslist.map((bid, index) => {
         return <li className="vutable-row">
           <ToastContainer/>
         <div className="vucol vucol-1">

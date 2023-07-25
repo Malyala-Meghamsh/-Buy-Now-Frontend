@@ -50,7 +50,7 @@ function Tabs(props) {
                 {props.user && <h3>Email : {props.user.username}</h3>}
                 {props.user && <h3>ID : {props.user.id}</h3>}
                 
-                {console.log(props.user)}
+                {/* {console.log(props.user)} */}
                 <hr />
                 
             </div>

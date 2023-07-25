@@ -16,12 +16,14 @@ function Login() {
     // useEffect
     useEffect(()=>{
         const token = localStorage.getItem('token');
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/`, { headers : {
-            Authorization: token,
-        }}).then(res => {
-            navigate('/');
-        }).catch( err => {
-        })
+        if (token) {
+            axios.get(`${process.env.REACT_APP_BACKEND_URL}/`, { headers : {
+                Authorization: token,
+            }}).then(res => {
+                navigate('/');
+            }).catch( err => {
+            })
+        }
     }, [])
     const LogInClick = () => {
 

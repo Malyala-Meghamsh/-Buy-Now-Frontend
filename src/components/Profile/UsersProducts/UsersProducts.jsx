@@ -125,16 +125,16 @@ function UsersProducts(props) {
             </li>
             {deleteModal && <DeleteProduct closeDltModal={closeDltModal} itemDelete={itemDelete}  index={idxx}/>}
             {editModal && <EditProduct closeModal={closeModal} item={activeProducts[idxx]}/>}
+            {bidsModal && <ProductsBidsDisplay closeBidsModal={closeBidsModal} prod={activeProducts[idxx]}/>}
             {activeProducts.map((product, index) => {
               // setIdxx(index);
-              console.log(product);
+              // console.log(product);
               return <li className="utable-row">
                   <div className="ucol ucol-1">
                       <Link to={`/product/${product._id}`}>
                       <img className="uns" src={product.imageURL[0]} alt="Img" />
                       </Link>
                   </div>
-                {bidsModal && <ProductsBidsDisplay closeBidsModal={closeBidsModal} prod={activeProducts[index]}/>}
                   <div className="ucol ucol-2">{product.name}</div>
                   <div className="ucol ucol-3">{product.cost}</div>
                   <div className="ucol ucol-4">{product.category}</div>
@@ -153,7 +153,7 @@ function UsersProducts(props) {
                       </svg>
                     </button>
                     <div>
-                      <button onClick={()=>setBidsModal(true)}>
+                      <button onClick={()=>{ setIdxx(index); setBidsModal(true);}}>
                         Show bids
                       </button>
                     </div>
