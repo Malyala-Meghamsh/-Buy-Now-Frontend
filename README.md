@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# View It Live
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://buynow276.netlify.app/
+
+# BuyNow Backend GitHub Repository
+
+https://github.com/Malyala-Meghamsh/Buy-Now-Backend
 
 ## Available Scripts
 
